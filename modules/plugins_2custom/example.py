@@ -1,4 +1,4 @@
-from pyrogram import Client
+from pyrogram import Client, filters
 from command import fox_command, fox_sudo, who_message
 import os
 
