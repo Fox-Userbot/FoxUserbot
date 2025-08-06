@@ -1,17 +1,16 @@
 from pyrogram import Client, __version__
 from modules.plugins_1system.uptime import bot_start_time
-from command import *
+from command import fox_command, fox_sudo, who_message
 import os
 import subprocess
-from platform import python_version, system, release , uname
+from platform import python_version, system, release, uname
 import configparser
 from pathlib import Path
 from datetime import datetime
 
 
 
-
-DEFAULT_INFO_IMAGE = "https://raw.githubusercontent.com/FoxUserbot/FoxUserbot-Dev/refs/heads/main/photos/system_info.jpg"
+DEFAULT_INFO_IMAGE = "https://raw.githubusercontent.com/FoxUserbot/FoxUserbot/refs/heads/main/photos/system_info.jpg"
 THEME_PATH = "userdata/theme.ini"
 
 
@@ -74,22 +73,14 @@ def replace_aliases(text, message):
         '{uptime}': uptime_text,
         '{platform}': platform_text,
     }
-    
 
     for alias, value in aliases.items():
         text = text.replace(alias, str(value))
 
-    if message.from_user.is_premium:
-        footer = f"""
-<blockquote expandable><emoji id="5330237710655306682">📱</emoji><a href="https://t.me/foxteam0"><b> | Official FoxTeam Channel.</b></a>
-<emoji id="5346181118884331907">📱</emoji><a href="https://github.com/FoxUserbot/FoxUserbot"><b> | Github Repository.</b></a>
-<emoji id="5379999674193172777">🔭</emoji><a href="https://github.com/FoxUserbot/FoxUserbot#how-to-install"><b> | Installation Guide.</b></a></blockquote>
-    """
-    else:
-        footer = f"""
-<blockquote expandable><b><a href="https://t.me/foxteam0">💻 | Official FoxTeam Channel.</a></b>
-<b><a href="https://github.com/FoxUserbot/FoxUserbot">🐈‍⬛ | Github Repository.</a></b>
-<b><a href="https://github.com/FoxUserbot/FoxUserbot#how-to-install">🤔 | Installation Guide.</a></b></blockquote>
+    footer = f"""
+<blockquote expandable><emoji id="5330237710655306682">💻</emoji><a href="https://t.me/foxteam0"><b> | Official FoxTeam Channel.</b></a>
+<emoji id="5346181118884331907">🐈‍⬛</emoji><a href="https://github.com/FoxUserbot/FoxUserbot"><b> | Github Repository.</b></a>
+<emoji id="5379999674193172777">🤔</emoji><a href="https://github.com/FoxUserbot/FoxUserbot#how-to-install"><b> | Installation Guide.</b></a></blockquote>
 """
     return text + footer
 
@@ -124,22 +115,22 @@ def get_info_text(message):
             pass
     
     return f"""
-<emoji id="5190875290439525089">😊</emoji><b> | FoxUserbot INFO</b>
-<emoji id="5372878077250519677">📱</emoji><b> | Python: {python_version()}</b>
-<emoji id="5190637731503415052">🦊</emoji><b> | Kurigram: {__version__}</b>
-<emoji id="5282843764451195532">🖥</emoji><b> | Uptime: {uptime_text}</b>
+<emoji id="5190875290439525089">🦊</emoji><b> | FoxUserbot INFO</b>
+<emoji id="5372878077250519677">🐍</emoji><b> | Python: {python_version()}</b>
+<emoji id="5190637731503415052">🥧</emoji><b> | Kurigram: {__version__}</b>
+<emoji id="5282843764451195532">⏰</emoji><b> | Uptime: {uptime_text}</b>
 <emoji id="5350554349074391003">💻</emoji><b> | Platform: {platform_text}</b>
     
-<emoji id="5330237710655306682">📱</emoji><a href="https://t.me/foxteam0"><b> | Official FoxTeam Channel.</b></a>
-<emoji id="5346181118884331907">📱</emoji><a href="https://github.com/FoxUserbot/FoxUserbot"><b> | Github Repository.</b></a>
-<emoji id="5379999674193172777">🔭</emoji><a href="https://github.com/FoxUserbot/FoxUserbot#how-to-install"><b> | Installation Guide.</b></a>
+<emoji id="5330237710655306682">💻</emoji><a href="https://t.me/foxteam0"><b> | Official FoxTeam Channel.</b></a>
+<emoji id="5346181118884331907">🐈‍⬛</emoji><a href="https://github.com/FoxUserbot/FoxUserbot"><b> | Github Repository.</b></a>
+<emoji id="5379999674193172777">🤔</emoji><a href="https://github.com/FoxUserbot/FoxUserbot#how-to-install"><b> | Installation Guide.</b></a>
     
 <emoji id=5350554349074391003>💻</emoji> | <b>Developers:</b>
-<emoji id="5330237710655306682">📱</emoji> | <a href="https://t.me/a9_fm">A9FM</a>
-<emoji id="5330237710655306682">📱</emoji> | <a href="https://t.me/ArThirtyFour">ArThirtyFour</a>
+<emoji id="5330237710655306682">📞</emoji> | <a href="https://t.me/a9_fm">A9FM</a>
+<emoji id="5330237710655306682">📞</emoji> | <a href="https://t.me/ArThirtyFour">ArThirtyFour</a>
 
-<emoji id="5359480394922082925">📱</emoji> | <b>Designer:</b>
-<emoji id="5330237710655306682">📱</emoji> | <a href="https://t.me/nw_off">Nw_Off</a>
+<emoji id="5359480394922082925">🖼</emoji> | <b>Designer:</b>
+<emoji id="5330237710655306682">📞</emoji> | <a href="https://t.me/nw_off">Nw_Off</a>
     """
 
 
