@@ -1,7 +1,7 @@
 from pyrogram import Client
 from modules.plugins_1system.settings.main_settings import module_list, file_list
 from modules.plugins_1system.restarter import restart
-from command import *
+from command import fox_command, fox_sudo, who_message
 import os
 
 
@@ -20,3 +20,4 @@ async def unloadmod(client, message):
         await restart(message, restart_type="restart")
     except Exception as error:
         await message.edit(f"<emoji id='5210952531676504517'>❌</emoji> **An error has occurred.**\nLog: not found {error}")
+
