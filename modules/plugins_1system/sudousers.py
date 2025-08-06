@@ -1,6 +1,6 @@
 from pyrogram import Client , filters
 from modules.plugins_1system.restarter import restart
-from command import *
+from command import fox_command, fox_sudo, who_message
 import os
 import json
 from pathlib import Path
@@ -66,3 +66,4 @@ async def sudo_manager(client, message):
 
     else:
         await message.edit(f"<emoji id='5210952531676504517'>❌</emoji> <b>Unknown action! Use add/del/list</b>")
+
