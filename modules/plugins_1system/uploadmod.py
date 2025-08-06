@@ -1,6 +1,6 @@
 from pyrogram import Client
 from modules.plugins_1system.settings.main_settings import file_list
-from command import *
+from command import fox_command, fox_sudo, who_message
 import os
 
 
