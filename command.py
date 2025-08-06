@@ -23,12 +23,9 @@ async def who_message(client, message):
     else:
         try:
             i = await client.send_message(message.chat.id, message.text, message_thread_id=message.message_thread_id)
-            i.command = message.command
-            return i
         except:
-            i = await client.send_message(message.chat.id, message.text, message_thread_id=message.message_thread_id)
-            i.command = message.command
-            return i
+            i = await client.send_message(message.chat.id, message.text)
+        return i
 
 
 def fox_sudo():
