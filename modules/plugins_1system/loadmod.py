@@ -1,6 +1,6 @@
 from pyrogram import Client
 from modules.plugins_1system.restarter import restart
-from command import *
+from command import fox_command, fox_sudo, who_message
 import os
 import wget
 
@@ -10,7 +10,7 @@ async def loadmod(client, message):
     message = await who_message(client, message)
     if not message.reply_to_message:
         await message.edit("<b>Load module...</b>")
-        link = message.command[1]
+        link = message.text.split()[1]
         wget.download(link, 'modules/plugins_2custom/')
         await message.edit(
             f"<emoji id='5237699328843200968'>✅</emoji> **The module has been loaded successfully** \nRestart..."
@@ -22,5 +22,3 @@ async def loadmod(client, message):
             f"<emoji id='5237699328843200968'>✅</emoji> **The module has been loaded successfully** \nRestart..."
         )
         await restart(message, restart_type="restart")
-
-
