@@ -2,7 +2,7 @@ from pyrogram import Client
 import configparser
 import os
 from pathlib import Path
-from command import *
+from command import fox_command, fox_sudo, who_message
 
 THEME_PATH = "userdata/theme.ini"
 
