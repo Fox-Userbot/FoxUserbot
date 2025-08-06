@@ -2,7 +2,7 @@ import os
 import json
 from pathlib import Path
 from pyrogram import Client, filters
-from command import *
+from command import fox_command, fox_sudo, who_message
 from typing import Dict, List
 from prefix import my_prefix
 from modules.plugins_1system.restarter import restart
@@ -98,4 +98,5 @@ async def list_aliases(message):
         f"<code>{alias}</code> → <code>{cmd}</code>" 
         for alias, cmd in alias_manager.aliases.items()
     )
+
     await message.edit(f"<emoji id='5283051451889756068'>🦊</emoji> <b>List aliases:</b>\n{aliases_list}")
