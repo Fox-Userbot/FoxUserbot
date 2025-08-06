@@ -1,6 +1,6 @@
 from pyrogram import Client
 from pyrogram.types import Message
-from command import *
+from command import fox_command, fox_sudo, who_message
 import os
 import zipfile
 import wget
@@ -76,4 +76,5 @@ async def update(client, message):
         await message.edit('<emoji id="5237699328843200968">✅</emoji> **Userbot succesfully updated\nRestarting...**')
         await restart(message, restart_type="update")
     except:
+
         await message.edit(f"<emoji id='5210952531676504517'>❌</emoji> **An error occured...**")
