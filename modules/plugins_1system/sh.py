@@ -1,5 +1,5 @@
 from pyrogram import Client
-from command import *
+from command import fox_command, fox_sudo, who_message
 import os
 from subprocess import Popen, PIPE, TimeoutExpired
 from time import perf_counter
@@ -7,7 +7,7 @@ import random
 
 
 @Client.on_message(fox_command(["shell", "sh"], "Sh", os.path.basename(__file__), "[command/reply]") & fox_sudo())
-async def example_edit(client, message):
+async def shell(client, message):
     message = await who_message(client, message)
     if not message.reply_to_message and (len(message.command) == 1):
         return await message.edit(
@@ -68,4 +68,5 @@ async def example_edit(client, message):
             await message.edit(f"<code>{command}</code>")
         os.remove(f"result{i}.txt")
     cmd_obj.kill()
+
 
