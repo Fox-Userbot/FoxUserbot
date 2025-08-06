@@ -1,5 +1,5 @@
 from pyrogram import Client
-from command import *
+from command import fox_command, fox_sudo, who_message
 import os
 
 
@@ -10,3 +10,4 @@ async def find_id(client, message):
         await message.edit(f"<emoji id='5974526806995242353'>🆔</emoji> Chat ID: `{message.chat.id}`")
     else:
         await message.edit(f"<emoji id='5974526806995242353'>🆔</emoji> User ID: `{message.reply_to_message.from_user.id}`\n<emoji id='5974526806995242353'>🆔</emoji> Chat ID: `{message.chat.id}`")
+
