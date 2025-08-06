@@ -1,5 +1,4 @@
-from pyrogram import Client, filters
-from pyrogram.types import Message
+from pyrogram import Client
 import os
 import shutil
 import tarfile
@@ -7,7 +6,7 @@ import tempfile
 from pathlib import Path
 from modules.plugins_1system.settings.main_settings import version
 from modules.plugins_1system.restarter import restart
-from command import fox_command, fox_sudo, who_message
+from command import *
 
 # backup_dirs
 BACKUP_PATHS = [
@@ -77,8 +76,9 @@ async def backup_command(client, message):
             os.remove(backup_file)
 
 
-@Client.on_message(fox_command("restore", "Backup", os.path.basename(__file__), "[reply]") & filters.me)
+@Client.on_message(fox_command("restore", "Backup", os.path.basename(__file__), "[reply]") & fox_sudo())
 async def restore_command(client, message):
+    message = await who_message(client, message)
     await message.edit("<b><emoji id='5264727218734524899'>🔄</emoji> Ready for restoration...</b>")
     await restore_backup(client, message)
     await restart(message, restart_type="restart")

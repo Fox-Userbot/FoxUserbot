@@ -1,12 +1,13 @@
-from pyrogram import Client, filters
+from pyrogram import Client
 from modules.plugins_1system.restarter import restart
-from command import fox_command
+from command import *
 import os
 import wget
 
 
-@Client.on_message(fox_command("loadmod", "Loadmod", os.path.basename(__file__), "[link to the module/reply]") & filters.me)
+@Client.on_message(fox_command("loadmod", "Loadmod", os.path.basename(__file__), "[link to the module/reply]") & fox_sudo())
 async def loadmod(client, message):
+    message = await who_message(client, message)
     if not message.reply_to_message:
         await message.edit("<b>Load module...</b>")
         link = message.command[1]

@@ -1,6 +1,6 @@
-from pyrogram import Client, filters
+from pyrogram import Client
 from modules.plugins_1system.settings.main_settings import module_list, version
-from command import fox_command
+from command import *
 import os
 from telegraph import Telegraph
 import random
@@ -8,7 +8,7 @@ import configparser
 from pathlib import Path
 
 # Default
-DEFAULT_HELP_IMAGE = "https://raw.githubusercontent.com/FoxUserbot/FoxUserbot/main/photos/foxuserbot_info.jpg"
+DEFAULT_HELP_IMAGE = "https://raw.githubusercontent.com/FoxUserbot/FoxUserbot-dev/main/photos/foxuserbot_info.jpg"
 THEME_PATH = "userdata/theme.ini"
 
 def get_help_image():
@@ -68,25 +68,18 @@ def get_help_text(message):
         except Exception as e:
             pass
     
-    if message.from_user.is_premium:
-        return f"""
+    return f"""
 <emoji id="5190875290439525089">😊</emoji><b> | FoxUserbot RUNNING</b>
 <emoji id="5197288647275071607">🛡</emoji><b> | Version: </b><b>{version}</b>
 <emoji id="5193177581888755275">💻</emoji><b> | Modules: {len(module_list)}</b>
 <emoji id="5444856076954520455">🧾</emoji><b> | Prefix: {my_prefix()}</b>
 <emoji id="5436113877181941026">❓</emoji><a href="{link}"><b> | List of all commands. </b></a>
 """
-    else:
-        return f"""
-<b>🦊 | FoxUserbot RUNNING</b>
-<b>🔒 | Version: {version}</b>
-<b>💼 | Modules: {len(module_list)}</b>
-<b>🔒 | Prefix: {my_prefix()}</b>
-<b><a href={link}>❓ | List of all commands. </a></b>
-"""
 
-@Client.on_message(fox_command("help", "Help", os.path.basename(__file__)) & filters.me)
+
+@Client.on_message(fox_command("help", "Help", os.path.basename(__file__)) & fox_sudo())
 async def helps(client, message):
+    message = await who_message(client, message)
     try:
         image_url = get_help_image()
         if image_url.split(".")[-1].lower() in ["mp4", "mov", "avi", "mkv", "webm"]:

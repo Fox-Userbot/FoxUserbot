@@ -2,7 +2,7 @@ import os
 import json
 from pathlib import Path
 from pyrogram import Client, filters
-from command import fox_command
+from command import *
 from typing import Dict, List
 from prefix import my_prefix
 from modules.plugins_1system.restarter import restart
@@ -45,8 +45,9 @@ class AliasManager:
 
 alias_manager = AliasManager()
 
-@Client.on_message(fox_command("alias", "AliasManager", os.path.basename(__file__), "[add/del/list] [alias] [command]") & filters.me)
+@Client.on_message(fox_command("alias", "AliasManager", os.path.basename(__file__), "[add/del/list] [alias] [command]") & fox_sudo())
 async def handle_aliases(client, message):
+    message = await who_message(client, message)
     args = message.text.split(maxsplit=3)
     
     if len(args) < 2:

@@ -1,6 +1,6 @@
 from prefix import my_prefix
 from pyrogram import filters
-from modules.plugins_1system.settings.main_settings import module_list, file_list, add_command_help
+from modules.plugins_1system.settings.main_settings import file_list, add_command_help
 from typing import Union, List
 from pathlib import Path
 import json
@@ -23,9 +23,12 @@ async def who_message(client, message):
     else:
         try:
             i = await client.send_message(message.chat.id, message.text, message_thread_id=message.message_thread_id)
+            i.command = message.command
+            return i
         except:
-            i = await client.send_message(message.chat.id, message.text)
-        return i
+            i = await client.send_message(message.chat.id, message.text, message_thread_id=message.message_thread_id)
+            i.command = message.command
+            return i
 
 
 def fox_sudo():

@@ -1,10 +1,11 @@
-from pyrogram import Client, filters
-from command import fox_command
+from pyrogram import Client
+from command import *
 import os
 
 
-@Client.on_message(fox_command("id", "FindIDThisChat", os.path.basename(__file__)) & filters.me)
+@Client.on_message(fox_command("id", "FindIDThisChat", os.path.basename(__file__)) & fox_sudo())
 async def find_id(client, message):
+    message = await who_message(client, message)
     if message.reply_to_message is None:
         await message.edit(f"<emoji id='5974526806995242353'>🆔</emoji> Chat ID: `{message.chat.id}`")
     else:
