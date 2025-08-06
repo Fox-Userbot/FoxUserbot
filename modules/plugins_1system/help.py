@@ -1,6 +1,6 @@
 from pyrogram import Client
 from modules.plugins_1system.settings.main_settings import module_list, version
-from command import *
+from command import fox_command, fox_sudo, who_message
 import os
 from telegraph import Telegraph
 import random
