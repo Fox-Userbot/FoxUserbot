@@ -1,11 +1,11 @@
 from pyrogram import Client, filters
-from command import *
+from command import fox_command, fox_sudo, who_message
 import os
 import sys
 from io import StringIO
 
 @Client.on_message(fox_command("eval", "Eval", os.path.basename(__file__), "[code/reply]") & fox_sudo())
-async def user_exec(client, message):
+def user_exec(client, message):
     message = await who_message(client, message)
     reply = message.reply_to_message
     code = ""
@@ -34,3 +34,4 @@ async def user_exec(client, message):
             f"<emoji id='5447410659077661506'>🌐</emoji> <b>Result</b>:\n"
             f"<code>{sys.exc_info()[0].__name__}: {sys.exc_info()[1]}</code>"
         )
+
