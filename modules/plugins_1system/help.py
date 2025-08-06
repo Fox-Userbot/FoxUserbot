@@ -8,7 +8,7 @@ import configparser
 from pathlib import Path
 
 # Default
-DEFAULT_HELP_IMAGE = "https://raw.githubusercontent.com/FoxUserbot/FoxUserbot-dev/main/photos/foxuserbot_info.jpg"
+DEFAULT_HELP_IMAGE = "https://raw.githubusercontent.com/FoxUserbot/FoxUserbot/main/photos/foxuserbot_info.jpg"
 THEME_PATH = "userdata/theme.ini"
 
 def get_help_image():
@@ -69,10 +69,10 @@ def get_help_text(message):
             pass
     
     return f"""
-<emoji id="5190875290439525089">😊</emoji><b> | FoxUserbot RUNNING</b>
-<emoji id="5197288647275071607">🛡</emoji><b> | Version: </b><b>{version}</b>
-<emoji id="5193177581888755275">💻</emoji><b> | Modules: {len(module_list)}</b>
-<emoji id="5444856076954520455">🧾</emoji><b> | Prefix: {my_prefix()}</b>
+<emoji id="5190875290439525089">🦊</emoji><b> | FoxUserbot RUNNING</b>
+<emoji id="5197288647275071607">🔒</emoji><b> | Version: </b><b>{version}</b>
+<emoji id="5193177581888755275">💼</emoji><b> | Modules: {len(module_list)}</b>
+<emoji id="5444856076954520455">🔒</emoji><b> | Prefix: {my_prefix()}</b>
 <emoji id="5436113877181941026">❓</emoji><a href="{link}"><b> | List of all commands. </b></a>
 """
 
