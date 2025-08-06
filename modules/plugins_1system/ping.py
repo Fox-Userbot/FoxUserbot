@@ -1,5 +1,5 @@
 from pyrogram import Client
-from command import *
+from command import fox_command, fox_sudo, who_message
 import os
 from time import perf_counter
 
