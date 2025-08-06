@@ -1,6 +1,6 @@
 from pyrogram import Client
 from modules.plugins_1system.restarter import restart
-from command import *
+from command import fox_command, fox_sudo, who_message
 import os
 import configparser
 
@@ -19,5 +19,3 @@ async def sprefix(client, message):
         config.write(config_file)
     await message.edit(f"<emoji id='5237699328843200968'>✅</emoji> <b>prefix [ <code>{prefixgett}</code> ] set!</b>\n<emoji id='5264727218734524899'>🔄</emoji> Restarting userbot...")
     await restart(message, restart_type="restart")
-
-
