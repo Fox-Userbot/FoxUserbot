@@ -6,7 +6,7 @@ import tempfile
 from pathlib import Path
 from modules.plugins_1system.settings.main_settings import version
 from modules.plugins_1system.restarter import restart
-from command import *
+from command import fox_command, fox_sudo, who_message
 
 # backup_dirs
 BACKUP_PATHS = [
