@@ -5,29 +5,44 @@ from pathlib import Path
 
 from pyrogram import Client
 
-from command import all_lang, fox_command, fox_sudo, my_prefix, who_message, set_global_lang, get_global_lang
+from command import all_lang, fox_command, fox_sudo, my_prefix, who_message, set_global_lang, get_global_lang , get_text
 
 filename = os.path.basename(__file__)
 Module_Name = 'Language'
 
 LANGUAGES = {
     "en": {
-        "success": "✅ Language set to: {lang}",
+        "success": "<emoji id=5202021044105257611>🇺🇸</emoji> Language set to: {lang}",
         "error": "❌ Error setting language", 
         "invalid": "❌ Invalid language! Available: {langs}",
-        "usage": "🌐 Available languages: {langs}\n💡 Usage: <code>{my_prefix}setlang en</code>"
-    },
+        "usage": "🌐 Available languages: {langs}\n💡 Usage: <code>{my_prefix}setlang en</code>",
+        "set_lang" : """
+<emoji id=5447410659077661506>🌐</emoji> | <b>Current language:</b> {current_lang}
+<emoji id=5395444784611480792>🔧</emoji> | <b>Global lang:</b> {global_lang}
+<emoji id=5422439311196834318>💡</emoji> | <b>Available:</b> {available_langs}
+        """
+     },
     "ru": {
-        "success": "✅ Язык установлен: {lang}",
+        "success": "<emoji id=5449408995691341691>🇷🇺</emoji> Язык установлен: {lang}",
         "error": "❌ Ошибка установки языка",
         "invalid": "❌ Неверный язык! Доступно: {langs}",
-        "usage": "🌐 Доступные языки: {langs}\n💡 Использование: <code>{my_prefix}setlang en</code>"
+        "usage": "🌐 Доступные языки: {langs}\n💡 Использование: <code>{my_prefix}setlang en</code>",
+        "set_lang" : """
+<emoji id=5447410659077661506>🌐</emoji> | <b>Текущий язык:</b> {current_lang}
+<emoji id=5395444784611480792>🔧</emoji> | <b>Глобальный язык:</b> {global_lang}
+<emoji id=5422439311196834318>💡</emoji> | <b>Доступно:</b> {available_langs}
+        """
     },
     "ua": {
-        "success": "✅ Мову встановлено: {lang}",
+        "success": "<emoji id=5447309366568953338>🇺🇦</emoji> Мову встановлено: {lang}",
         "error": "❌ Помилка встановлення мови",
         "invalid": "❌ Невірна мова! Доступно: {langs}",
-        "usage": "🌐 Доступні мови: {langs}\n💡 Використання: <code>{my_prefix}setlang en</code>"
+        "usage": "🌐 Доступні мови: {langs}\n💡 Використання: <code>{my_prefix}setlang en</code>",
+        "set_lang" : """
+<emoji id=5447410659077661506>🌐</emoji> | <b>Текущий язык:</b> {current_lang}
+<emoji id=5395444784611480792>🔧</emoji> | <b>Глобальный язык:</b> {global_lang}
+<emoji id=5422439311196834318>💡</emoji> | <b>Доступно:</b> {available_langs}
+        """
     }
 }
 
@@ -37,7 +52,7 @@ def get_lang_config():
     if lang_config_path.exists():
         config = configparser.ConfigParser()
         config.read(lang_config_path)
-        return config.get("language", "lang", fallback="en")  # исправлено на "lang"
+        return config.get("language", "lang", fallback="en") 
     else:
         return "en"
 
@@ -53,7 +68,7 @@ def save_lang_config(lang: str):
     
     if not config.has_section("language"):
         config.add_section("language")
-    config.set("language", "lang", lang)  # исправлено на "lang"
+    config.set("language", "lang", lang) 
     
     with open(lang_config_path, "w") as f:
         config.write(f)
@@ -96,9 +111,11 @@ async def get_current_language(client, message):
     
     current_lang = get_lang_config()
     global_lang = get_global_lang()
-    
-    text = (f"🌐 <b>Current language:</b> {current_lang.upper()}\n"
-            f"🔧 <b>Global lang:</b> {global_lang}\n"
-            f"💡 <b>Available:</b> {', '.join(all_lang)}")
+    available_langs = ", ".join(all_lang)
+    text = LANGUAGES.get(current_lang, LANGUAGES["en"])["set_lang"].format(
+        current_lang=current_lang.upper(),
+        global_lang=global_lang,
+        available_langs=available_langs
+    )
     
     await message.edit(text)
