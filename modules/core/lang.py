@@ -5,7 +5,7 @@ from pathlib import Path
 
 from pyrogram import Client
 
-from command import all_lang, fox_command, fox_sudo, my_prefix, who_message, set_global_lang, get_global_lang , get_text
+from command import all_lang, fox_command, fox_sudo, my_prefix, who_message, set_global_lang, get_global_lang, get_text
 
 filename = os.path.basename(__file__)
 Module_Name = 'Language'
@@ -119,3 +119,4 @@ async def get_current_language(client, message):
     )
     
     await message.edit(text)
+
