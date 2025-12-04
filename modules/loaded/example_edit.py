@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 from pyrogram import Client, filters
-from command import fox_command, fox_sudo, who_message, get_text, check_update
+from command import fox_command, fox_sudo, who_message, get_text
 
 filename = os.path.basename(__file__)
 Module_Name = 'Example'
@@ -37,7 +37,6 @@ Module_Name = 'Example'
 #        f.write("example_data")
 #        ^^^ enter the need data
 
-check_update("https://raw.githubusercontent.com/FoxUserbot/FoxUserbot-dev/refs/heads/main/modules/loaded/example_edit.py")
 
 LANGUAGES = {
     "en": {

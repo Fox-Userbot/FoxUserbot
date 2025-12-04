@@ -60,7 +60,7 @@ def get_help_image():
 
     try:
         config = configparser.ConfigParser()
-        config.read(THEME_PATH)
+        config.read(THEME_PATH, encoding='utf-8')
         return config.get("help", "image", fallback=DEFAULT_HELP_IMAGE)
     except:
         return DEFAULT_HELP_IMAGE
@@ -171,7 +171,7 @@ def get_help_text():
     if Path(THEME_PATH).exists():
         try:
             config = configparser.ConfigParser()
-            config.read(THEME_PATH)
+            config.read(THEME_PATH, encoding='utf-8')
             custom_text = config.get("help", "text", fallback=None)
             if custom_text and custom_text.strip() and custom_text != "Not set":
                 aliases = {

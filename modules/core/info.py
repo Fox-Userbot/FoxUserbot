@@ -291,7 +291,7 @@ def get_info_image():
 
     try:
         config = configparser.ConfigParser()
-        config.read(THEME_PATH)
+        config.read(THEME_PATH, encoding='utf-8')
         return config.get("info", "image", fallback=DEFAULT_INFO_IMAGE)
     except:
         return DEFAULT_INFO_IMAGE
@@ -306,7 +306,7 @@ def get_info_text(message):
     if Path(THEME_PATH).exists():
         try:
             config = configparser.ConfigParser()
-            config.read(THEME_PATH)
+            config.read(THEME_PATH, encoding='utf-8')
             custom_text = config.get("info", "text", fallback=None)
             if custom_text and custom_text.strip() and custom_text != "Not set":
                 return replace_aliases(custom_text, message)
