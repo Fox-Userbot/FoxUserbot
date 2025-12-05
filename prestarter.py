@@ -5,7 +5,25 @@ import sys
 import os
 import asyncio
 import json
+from command import get_module_text
 
+LANGUAGES = {
+    "en": {
+        "restart_success": "<emoji id='5237699328843200968'>✅</emoji> <code>Userbot succesfully Restarted</code>",
+        "update_completed": "<emoji id='5237699328843200968'>✅</emoji> <code>Update process completed!</code>",
+        "error_message": "<emoji id='5210952531676504517'>❌</emoji> Got error: {error}\n\n {text}"
+    },
+    "ru": {
+        "restart_success": "<emoji id='5237699328843200968'>✅</emoji> <code>Юзербот успешно перезапущен</code>",
+        "update_completed": "<emoji id='5237699328843200968'>✅</emoji> <code>Процесс обновления завершен!</code>",
+        "error_message": "<emoji id='5210952531676504517'>❌</emoji> Произошла ошибка: {error}\n\n {text}"
+    },
+    "ua": {
+        "restart_success": "<emoji id='5237699328843200968'>✅</emoji> <code>Юзербот успішно перезапущено</code>",
+        "update_completed": "<emoji id='5237699328843200968'>✅</emoji> <code>Процес оновлення завершено!</code>",
+        "error_message": "<emoji id='5210952531676504517'>❌</emoji> Сталася помилка: {error}\n\n {text}"
+    }
+}
 
 def prestart(api_id, api_hash, device_mod):
     from pyrogram.client import Client
@@ -38,9 +56,9 @@ def prestart(api_id, api_hash, device_mod):
                     thread_id = None
                     
             if restart_type == "1":
-                text = "<emoji id='5237699328843200968'>✅</emoji> <code>Update process completed!</code>"
+                text = get_module_text("update_completed", LANGUAGES)
             else:
-                text = "<emoji id='5237699328843200968'>✅</emoji> <code>Userbot succesfully Restarted</code>"
+                text = get_module_text("restart_success", LANGUAGES)
             try:
                 try:
                     chat_id = int(sys.argv[1])
@@ -49,7 +67,8 @@ def prestart(api_id, api_hash, device_mod):
                 if (str(chat_id).replace("@", "")) != "None":
                     app.send_message(chat_id, text, message_thread_id=thread_id)
             except Exception as f:
-                app.send_message("me", f"<emoji id='5210952531676504517'>❌</emoji> Got error: {f}\n\n" + text)
+                da = get_module_text('error_message',LANGUAGES,error=f,text=text)
+                app.send_message("me", da)
         
         # Triggers
         for i in os.listdir("triggers"):
