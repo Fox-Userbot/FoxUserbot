@@ -184,7 +184,6 @@ def raspberry_pi():
         return None
 
 def hosting_text():
-    os_name = system()
     os_release = release()
     raspberry_pi_version = raspberry_pi()
     termux_vars = [
@@ -196,8 +195,8 @@ def hosting_text():
         return '<emoji id="5301286542998774155">📱</emoji> Termux'
     elif "microsoft-standard" in uname().release:
         return '<emoji id="6298333093044422573">😥</emoji> WSL'
-    elif "SHARKHOST" in os.environ:
-        return '<emoji id="5361632650278744629">🦈</emoji> SharkHost'
+    elif "TEAHOST" in os.environ:
+        return f'<emoji id="5463032631954250729">☕️</emoji> TeaHost'
     elif "azure" in os_release.lower():
         return '<emoji id="5301233040591169044">👩‍💻</emoji> Azure'
     elif raspberry_pi_version != None:
@@ -207,7 +206,7 @@ def hosting_text():
     else:
         return '<emoji id="5807465992363710697">💎</emoji> VPS'
 
-def get_platform_info():
+def get_platform_info() -> str:
     os_name = system()
     os_release = release()
     distributive, distro_version = linux_distro()
