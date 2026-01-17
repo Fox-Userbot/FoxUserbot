@@ -25,8 +25,8 @@ LANGUAGES = {
     },
     "ua": {
         "no_module": "<emoji id='5210952531676504517'>❌</emoji> <b>Вкажіть назву модуля</b>",
-        "success": "<emoji id='5237699328843200968'>✅</emoji> <b>Модуль успішно вивантажено</b>",
-        "error": "<emoji id='5210952531676504517'>❌</emoji> <b>Помилка при вивантаженні</b> \n <spoiler>{error}</spoiler>"
+        "success": "<emoji id='5237699328843200968'>✅</emoji> <b>Модуль успішно видалено</b>",
+        "error": "<emoji id='5210952531676504517'>❌</emoji> <b>Помилка при видаленні</b> \n <spoiler>{error}</spoiler>"
     }
 }
 
@@ -93,4 +93,5 @@ def _load_module_handlers(client: Client, module_qualname: str):
     else:
         mod = importlib.import_module(module_qualname)
     for h in _iter_plugin_handlers(mod):
+
         client.add_handler(*h)

@@ -161,9 +161,9 @@ Kurigram: {version}
         "usage_info_text": "**Використання:** `.theme info set text [text]`",
         "usage_info_set": "**Використання:** `.theme info set [image/text] [value]`",
         "help_updated": "<emoji id='5237699328843200968'>✅</emoji> Параметри допомоги оновлено",
-        "help_reset": "<emoji id='5237699328843200968'>✅</emoji> Тема допомоги скинута на стандартну",
+        "help_reset": "<emoji id='5237699328843200968'>✅</emoji> Тема допомоги скинута на звичайну",
         "info_updated": "<emoji id='5237699328843200968'>✅</emoji> Параметри інфо оновлено",
-        "info_reset": "<emoji id='5237699328843200968'>✅</emoji> <b>Тема інфо скинута на стандартну</b>",
+        "info_reset": "<emoji id='5237699328843200968'>✅</emoji> <b>Тема інфо скинута на звичайну</b>",
         "help_text": """
 <blockquote expandable><b><emoji id='5283051451889756068'>🎨</emoji> <u>Як створити власну тему:</u></b>
 
@@ -195,7 +195,7 @@ Kurigram: {version}
 • <code>{version}</code> - версія FoxUserbot
 • <code>{modules_count}</code> - кількість модулів
 • <code>{prefix}</code> - префікс команди
-• <code>{commands_link}</code> - посилання на список всіх команд
+• <code>{commands_link}</code> - посилання на список усіх команд
 • <code>{safe_mode}</code> - статус безпечного режиму
 
 <b><emoji id='5422439311196834318'>💡</emoji> <u>Приклад користувацького тексту для інфо:</u></b>
@@ -212,7 +212,7 @@ Kurigram: {version}
 <code>{[ваш префікс]}theme help set text 🦊 FoxUserbot {version}
 📦 Модулі: {modules_count}
 🔧 Префікс: {prefix}
-❓ <a href="{commands_link}">Список всіх команд</a></code>
+❓ <a href="{commands_link}">Список усіх команд</a></code>
 </blockquote>
         """
     }
@@ -378,3 +378,4 @@ async def theme_command(client, message):
     else:
         help_text = get_text("theme", "help_text", LANGUAGES=LANGUAGES)
         await message.edit(help_text)
+

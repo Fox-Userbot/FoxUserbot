@@ -147,11 +147,26 @@ def check_duplicate(folder_path):
                 print(f)
 
 
+def replace_chat_privileges(file_path):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Проверяем, есть ли импорт ChatPrivileges в pyrogram.types
+    if re.search(r'from pyrogram\.types import.*\bChatPrivileges\b|import.*\bChatPrivileges\b', content):
+        # Заменяем все вхождения ChatPrivileges на ChatAdministratorRights
+        content = re.sub(r'\bChatPrivileges\b', 'ChatAdministratorRights', content)
+        
+        with open(file_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print(f"Replaced ChatPrivileges in {file_path}")
+
+
 def process_modules_directory(directory):
     for root, _, files in os.walk(directory):
         for file in files:
             if file.endswith('.py') and file != '__init__.py':
                 file_path = os.path.join(root, file)
+                replace_chat_privileges(file_path)
                 convert_module_new_format(file_path)
                 convert_module_filters_me(file_path)
     check_duplicate(directory)
@@ -160,5 +175,3 @@ def convert_modules():
     process_modules_directory("modules/loaded")
 
 convert_modules()
-
-

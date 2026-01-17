@@ -1,12 +1,18 @@
 # -*- coding: utf-8 -*-
 import os
+
 from pyrogram import Client, filters
-from command import fox_command, fox_sudo, who_message, get_text
+
+#from command import checkupdate, fox_command, fox_sudo, get_text, who_message
+from command import fox_command, fox_sudo, get_text, who_message
 
 filename = os.path.basename(__file__)
 Module_Name = 'Example'
-
-
+#* ========================================================
+# If you need to automatically check for updates and notify
+# the user about them, insert the RAW link to the file
+#checkupdate("https://raw.githubusercontent.com/FoxUserbot/FoxUserbot/refs/heads/main/modules/loaded/example_edit.py", filename)
+#* ========================================================
 # If you need to install an external module via pip
 # import the following line of code and install the library with the required parameter
 #
@@ -15,20 +21,19 @@ Module_Name = 'Example'
 #
 # ^^^ pip3 install requests -U
 #
-# =================================================
+# ========================================================
 #
 # from requirements_installer import install_library
 # install_library("requests==2.32.3") 
 #
 # ^^^ pip3 install requests==2.32.3
 #
-# =================================================
-#
+#* ========================================================
 # if you need to call any command after restarting
 # with open("triggers/example_autostart", "w", encoding="utf-8") as f:
 #        f.write("example_edit")
 #        ^^^ enter the command that should be run after the userbot is restarted
-#
+#* ========================================================
 # if you need write data config
 # with open("userdata/example_config", "w", encoding="utf-8") as f:
 #        f.write("example_data")

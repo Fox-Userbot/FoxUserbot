@@ -23,9 +23,9 @@ LANGUAGES = {
         "text_return": """<b><emoji id='5269563867305879894'>🏓</emoji> Понг \n<emoji id='5783105032350076195'>📶</emoji></b> {ping} мс\n{connect}"""
     },
     "ua": {
-        "connect_stable": "<emoji id='5416081784641168838'>🟢</emoji> Стабільно",
-        "connect_good": "🟠 Так собі",
-        "connect_unstable": "<emoji id='5411225014148014586'>🔴</emoji> Нестабільно",
+        "connect_stable": "<emoji id='5416081784641168838'>🟢</emoji> Стабільне",
+        "connect_good": "🟠 Піде",
+        "connect_unstable": "<emoji id='5411225014148014586'>🔴</emoji> Нестабільне",
         "connect_bad": "⚠️ Перевірте підключення", 
         "text_return": "<emoji id='5269563867305879894'>🏓</emoji> Понг\n<emoji id='5874986954180791957'>📶</emoji> {ping} мс\n{connect}"
     },
@@ -58,5 +58,6 @@ async def ping(client, message):
     result_text = get_text("ping", "text_return", LANGUAGES=LANGUAGES, ping=round(ping_time), connect=connect_text)
 
     await message.edit(result_text)
+
 
 
