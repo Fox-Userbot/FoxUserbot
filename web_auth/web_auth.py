@@ -104,9 +104,6 @@ def submit_password():
     return jsonify({'message': 'Password received'})
 
 def find_free_port() -> int:
-    if "SHARKHOST" or "HIKKAHOST" in os.environ:
-        return 8080
-    
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind(('localhost', 0))
         return s.getsockname()[1]
@@ -164,14 +161,30 @@ def get_public_url(port: int) -> Optional[str]:
         return None
 
 def run_web_server(port: int):
-    public_url = get_public_url(port)
-    if public_url:
-        print(f"🌐 Public URL: {public_url}")
-    if "SHARKHOST" in os.environ or "DOCKER" in os.environ:
-        host = '0.0.0.0'
+    if "DOCKER" in os.environ:
+        host = "0.0.0.0"
     else:
-        host = '127.0.0.1'
-    app.run(host=host, port=port, debug=False, use_reloader=False) 
+        host = "127.0.0.1"
+
+    def wait_until_listening() -> None:
+        deadline = time.time() + 15
+        while time.time() < deadline:
+            try:
+                with socket.create_connection(("127.0.0.1", port), timeout=0.5):
+                    return
+            except OSError:
+                time.sleep(0.2)
+
+    def start_tunnel_when_ready() -> None:
+        wait_until_listening()
+        public_url = get_public_url(port)
+        if public_url:
+            print(f"🌐 Public URL: {public_url}")
+
+    tunnel_thread = threading.Thread(target=start_tunnel_when_ready, daemon=True)
+    tunnel_thread.start()
+
+    app.run(host=host, port=port, debug=False, use_reloader=False)
     
 
 async def web_auth(api_id: int, api_hash: str, device_model: str) -> Tuple[bool, Optional[User]]:
