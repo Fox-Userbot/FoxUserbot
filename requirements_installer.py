@@ -100,5 +100,17 @@ def install_library(name):
             logger.info(f"Installed with pip (subprocess): {packages}")
             return True
         except subprocess.CalledProcessError as e:
-            logger.error(f"All pip attempts failed: {packages}\nError: {e}")
-            return False
+            logger.warning(f"Pip install failed, trying with --break-system-packages: {packages}\nError: {e}")
+            
+            # try with --break-system-packages
+            logger.warning(f"Trying pip with --break-system-packages: {packages}")
+            try:
+                result = subprocess.run(
+                    [python_path, "-m", "pip", "install", "--break-system-packages"] + packages,
+                    check=True
+                ).returncode
+                logger.info(f"Installed with pip --break-system-packages: {packages}")
+                return True
+            except subprocess.CalledProcessError as e2:
+                logger.error(f"All pip attempts failed including --break-system-packages: {packages}\nError: {e2}")
+                return False

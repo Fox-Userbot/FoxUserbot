@@ -37,37 +37,30 @@ def static_files(filename):
 @app.route('/', methods=['GET', 'POST'])
 def auth_web():
     global code_input, auth_complete, current_step, current_phone, error_message
-    
     if request.method == 'POST':
         if 'phone' in request.form:
             current_phone = request.form['phone']
             current_step = 'code' 
             error_message = ''
-            return redirect(url_for('auth_web', step='code', phone=current_phone))
-            
+            return redirect(url_for('auth_web', step='code', phone=current_phone))   
         elif 'code' in request.form:
             code_input = request.form['code']
             auth_complete = True 
             current_step = 'code' 
-            # Очистим прошлую ошибку на попытку ввода нового кода
             error_message = ''
-            return redirect(url_for('auth_web', step='code', phone=current_phone))
-            
+            return redirect(url_for('auth_web', step='code', phone=current_phone))   
         elif 'password' in request.form:
             code_input = request.form['password']
             auth_complete = True 
-            # Шаг сменится из фоновой логики; очищаем ошибку
             error_message = ''
             return redirect(url_for('auth_web', step='password', phone=current_phone))
     
     step = request.args.get('step', current_step)
     phone = request.args.get('phone', current_phone)
     error = request.args.get('error', '') or error_message
-    
     if step == 'password':
         current_step = 'password'
         current_phone = phone
-    
     return render_template_string(HTML_TEMPLATE, step=step, phone=phone, error=error)
 
 @app.route('/check_step', methods=['GET'])
@@ -79,14 +72,10 @@ def check_step():
 def submit_code():
     global code_input, auth_complete, current_step
     code = request.form.get('code')
-    phone = request.args.get('phone') 
-    
     if not code:
         return jsonify({'error': 'Missing code'}), 400
-    
     code_input = code
     auth_complete = True
-    print(f"📝 Logging: Code entered: {code}")
     return jsonify({'message': 'Code received'})
 
 
@@ -94,19 +83,13 @@ def submit_code():
 def submit_password():
     global code_input, auth_complete, current_step
     password = request.form.get('password')
-    
     if not password:
         return jsonify({'error': 'Missing password'}), 400
-    
     code_input = password
     auth_complete = True
-    print("📝 Logging: 2FA password entered")
     return jsonify({'message': 'Password received'})
 
 def find_free_port() -> int:
-    if "SHARKHOST" or "HIKKAHOST" in os.environ:
-        return 8080
-    
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind(('localhost', 0))
         return s.getsockname()[1]
@@ -206,13 +189,9 @@ async def web_auth(api_id: int, api_hash: str, device_model: str) -> Tuple[bool,
         
         while current_step == "phone":
             await asyncio.sleep(1) 
-        
         sent_code = await client.send_code(current_phone)
         sent_code_hash = sent_code.phone_code_hash 
-
         current_step = "code" 
-
-        # Цикл попыток ввода кода, пока не авторизуемся или не перейдем на ввод пароля
         while True:
             while not auth_complete:
                 await asyncio.sleep(1)
@@ -238,7 +217,7 @@ async def web_auth(api_id: int, api_hash: str, device_model: str) -> Tuple[bool,
             except SessionPasswordNeeded:
                 current_step = 'password'
                 error_message = ''
-                break  # переходим к вводу пароля
+                break 
             except (PhoneCodeInvalid, PhoneCodeExpired):
                 error_message = 'Invalid or expired code. Please try again.'
                 current_step = 'code'
