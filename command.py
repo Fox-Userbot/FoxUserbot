@@ -180,4 +180,32 @@ def get_text(module: str, key: str, LANGUAGES: dict = None, **kwargs) -> str:
 def get_available_langs() -> list:
     return all_lang
 
+# plugin update registry — for checkupdate() compatibility with example_edit.py:14
+_update_registry: dict = {}
+
+def checkupdate(url: str, filename: str = None):
+    """
+    Register RAW update URL for custom module.
+    Dev usage: checkupdate("https://raw.githubusercontent.com/.../mod.py", filename)
+    or UPDATE_URL = "https://..." variable (parsed separately).
+    No-op at import time, collected by plugin_updater on startup.
+    """
+    try:
+        fname = None
+        if filename:
+            fname = os.path.basename(str(filename))
+        else:
+            # fallback: try to infer caller filename
+            import inspect
+            caller = inspect.stack()[1].filename
+            fname = os.path.basename(caller)
+        if fname:
+            _update_registry[fname] = url
+    except Exception:
+        pass
+    return url
+
+def get_update_registry() -> dict:
+    return dict(_update_registry)
+
 _ = get_global_lang()

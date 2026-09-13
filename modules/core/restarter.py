@@ -3,6 +3,7 @@ import os
 import shutil
 import traceback
 import zipfile
+from datetime import date
 
 import wget
 from pyrogram import Client
@@ -36,6 +37,26 @@ LANGUAGES = {
         "restart_error": "<emoji id='5210952531676504517'>❌</emoji> **Сталася помилка...**"
     }
 }
+
+
+# Update mirrors: tried in order until one downloads. Full archive URLs on purpose —
+# every git host has its own format (GitHub: .../archive/refs/heads/main.zip,
+# Forgejo: .../archive/main.zip), so mirrors store ready links, not a template.
+# "expires" is the last valid day (YYYY-MM-DD); expired mirrors are skipped.
+# Add new mirrors here as {"main": "https://...", "beta": "https://...", "expires": "YYYY-MM-DD"}.
+UPDATE_MIRRORS = [
+    {
+        "main": "https://rpi4b.tailb2d7b7.ts.net/FoxUserbot/FoxUserbot/archive/main.zip",
+        "beta": "https://rpi4b.tailb2d7b7.ts.net/FoxUserbot/FoxUserbot-dev/archive/main.zip",
+        "expires": "2026-11-13",
+    },
+    {
+        "main": "https://git.a9fm.best/FoxUserbot/FoxUserbot/archive/main.zip",
+        "beta": "https://git.a9fm.best/FoxUserbot/FoxUserbot-dev/archive/main.zip",
+        "expires": "2027-02-20",
+    },
+]
+
 
 
 def restart_executor(chat_id=None, message_id=None, text=None, thread=None):
@@ -75,16 +96,37 @@ async def restart(message: Message, restart_type):
     restart_executor(chat_id, message.id, text, thread_id)
 
 
-async def update_repository(client, message, repo_url, repo_type):
+def download_from_mirrors(repo_type, dest):
+    """Download repo_type ('main' or 'beta') archive from first working mirror. Return used URL."""
+    today = date.today()
+    errors = []
+    for mirror in UPDATE_MIRRORS:
+        url = mirror[repo_type]
+        if today > date.fromisoformat(mirror["expires"]):
+            errors.append(f"{url} (expired {mirror['expires']})")
+            continue
+        try:
+            wget.download(url, dest)
+            return url
+        except Exception as e:
+            errors.append(f"{url} ({e})")
+            try:
+                os.remove(dest)
+            except OSError:
+                pass
+    raise Exception("All update mirrors failed: " + "; ".join(errors))
+
+
+async def update_repository(client, message, repo_type):
     try:
         try:
             os.remove("temp/archive.zip")
         except:
             pass
-        
+
         await message.edit(get_text("restarter", "updating", LANGUAGES=LANGUAGES, repo_type=repo_type))
 
-        wget.download(repo_url, 'temp/archive.zip')
+        download_from_mirrors(repo_type, "temp/archive.zip")
 
         with zipfile.ZipFile("temp/archive.zip", "r") as zip_ref:
             file_list = zip_ref.namelist()
@@ -135,7 +177,7 @@ async def restart_get(client, message):
 @Client.on_message(fox_command("update", Module_Name, filename) & fox_sudo())
 async def update(client, message):
     message = await who_message(client, message)
-    await update_repository(client, message, "https://github.com/FoxUserbot/FoxUserbot/archive/refs/heads/main.zip", "main")
+    await update_repository(client, message, "main")
 
 
 # Update beta
@@ -143,4 +185,4 @@ async def update(client, message):
 async def update_beta(client, message):
     message = await who_message(client, message)
 
-    await update_repository(client, message, "https://github.com/FoxUserbot/FoxUserbot-dev/archive/refs/heads/main.zip", "beta")
+    await update_repository(client, message, "beta")

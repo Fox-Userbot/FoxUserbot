@@ -1,6 +1,6 @@
 """Please, ignore this file."""
 
-version = "2.7.3 [FIX]"
+version = "2.8"
 module_list = {}
 file_list = {}
 

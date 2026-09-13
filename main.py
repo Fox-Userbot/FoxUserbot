@@ -20,7 +20,16 @@ def is_running_in_termux():
 
 def check_structure():
     if os.path.exists("localhost_run_output.txt"):
-        os.remove("localhost_run_output.txt")
+        try:
+            os.remove("localhost_run_output.txt")
+        except OSError:
+            try:
+                # Windows: file locked by stale ssh tunnel with localhost.run — try to truncate, else ignore
+                with open("localhost_run_output.txt", "w", encoding="utf-8"):
+                    pass
+                os.remove("localhost_run_output.txt")
+            except OSError:
+                pass
     if not os.path.exists("temp"):
         os.mkdir("temp")
     if not os.path.exists("userdata"):
@@ -87,7 +96,10 @@ async def start_userbot(app):
     else:
         logger.info("[Session]: First authorization, restarting main script")
         if os.path.exists("localhost_run_output.txt"):
-            os.remove("localhost_run_output.txt")
+            try:
+                os.remove("localhost_run_output.txt")
+            except OSError:
+                pass
         os.execv(sys.executable, [sys.executable] + sys.argv)
 
 
@@ -193,6 +205,12 @@ def userbot():
                 
                 load_all_external_plugins(client)
                 logger.info("[Userbot] External plugins loaded successfully")
+                # custom modules update checker (user-controlled via !autoupdate)
+                try:
+                    from modules.core.plugin_updater import check_updates_on_start
+                    await check_updates_on_start(client)
+                except Exception as e:
+                    logging.warning(f"[Updater] startup check failed: {e}")
         
         client.run()
 

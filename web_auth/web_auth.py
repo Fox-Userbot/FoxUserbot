@@ -112,7 +112,15 @@ def get_public_url(port: int) -> Optional[str]:
 
     localhost_run_output_file = "localhost_run_output.txt"
     if os.path.exists(localhost_run_output_file):
-        os.remove(localhost_run_output_file)
+        try:
+            os.remove(localhost_run_output_file)
+        except OSError:
+            try:
+                with open(localhost_run_output_file, "w", encoding="utf-8"):
+                    pass
+                os.remove(localhost_run_output_file)
+            except OSError:
+                pass
 
     try:      
         if os.name == 'nt':
