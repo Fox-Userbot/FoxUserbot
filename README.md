@@ -11,19 +11,19 @@
     <br><br>
     <div align="left">
     <a href="https://github.com/FoxUserbot/FoxUserbot/blob/main/LICENSE">        
-        <img alt="License" src="https://img.shields.io/github/license/FoxUserbot/FoxUserbot?style=for-the-badge">
+        <img alt="License" src="https://img.shields.io/github/license/Fox-Userbot/FoxUserbot?style=for-the-badge">
     </a>
     <a href="https://github.com/FoxUserbot/FoxUserbot/commits/main">
-        <img alt="last-commit" src="https://img.shields.io/github/last-commit/FoxUserbot/FoxUserbot?style=for-the-badge">
+        <img alt="last-commit" src="https://img.shields.io/github/last-commit/Fox-Userbot/FoxUserbot?style=for-the-badge">
     </a>
     <a href="https://github.com/FoxUserbot/FoxUserbot/issues">        
-        <img alt="Issues" src="https://img.shields.io/github/issues/FoxUserbot/FoxUserbot?style=for-the-badge">
+        <img alt="Issues" src="https://img.shields.io/github/issues/Fox-Userbot/FoxUserbot?style=for-the-badge">
     </a>
     <a href="https://github.com/FoxUserbot/FoxUserbot">
-        <img alt="CodeFactor" src="https://www.codefactor.io/repository/github/FoxUserbot/FoxUserbot/badge?style=for-the-badge">
-        <img alt="Stars" src="https://img.shields.io/github/stars/FoxUserbot/FoxUserbot?style=for-the-badge">
-        <img alt="Size" src="https://img.shields.io/github/repo-size/FoxUserbot/FoxUserbot?style=for-the-badge">
-        <img alt="Language" src="https://img.shields.io/github/languages/top/FoxUserbot/FoxUserbot?style=for-the-badge">
+        <img alt="CodeFactor" src="https://www.codefactor.io/repository/github/Fox-Userbot/FoxUserbot/badge?style=for-the-badge">
+        <img alt="Stars" src="https://img.shields.io/github/stars/Fox-Userbot/FoxUserbot?style=for-the-badge">
+        <img alt="Size" src="https://img.shields.io/github/repo-size/Fox-Userbot/FoxUserbot?style=for-the-badge">
+        <img alt="Language" src="https://img.shields.io/github/languages/top/Fox-Userbot/FoxUserbot?style=for-the-badge">
         <img alt="Python" src="https://img.shields.io/badge/python->=%203.7-blue?style=for-the-badge">
     </a>
     </div>
@@ -31,7 +31,7 @@
 
 <h1>Custom modules</h1>
 
-<p>To add your module to the bot, create a pull request in the <a href='https://github.com/FoxUserbot/CustomModules/'>custom_modules</a> repository</p>
+<p>To add your module to the bot, create a pull request in the <a href='https://github.com/Fox-Userbot/CustomModules/'>custom_modules</a> repository</p>
 
 ```python3
 # -*- coding: utf-8 -*-
