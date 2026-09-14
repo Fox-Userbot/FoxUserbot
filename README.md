@@ -20,7 +20,7 @@
         <img alt="Issues" src="https://img.shields.io/github/issues/Fox-Userbot/FoxUserbot?style=for-the-badge">
     </a>
     <a href="https://github.com/Fox-Userbot/FoxUserbot">
-        <img alt="CodeFactor" src="https://www.codefactor.io/repository/github/Fox-Userbot/FoxUserbot/badge?style=for-the-badge">
+        <img alt="CodeFactor" src="https://www.codefactor.io/repository/github/fox-userbot/foxuserbot/badge?style=for-the-badge">
         <img alt="Stars" src="https://img.shields.io/github/stars/Fox-Userbot/FoxUserbot?style=for-the-badge">
         <img alt="Size" src="https://img.shields.io/github/repo-size/Fox-Userbot/FoxUserbot?style=for-the-badge">
         <img alt="Language" src="https://img.shields.io/github/languages/top/Fox-Userbot/FoxUserbot?style=for-the-badge">
