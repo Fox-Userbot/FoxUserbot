@@ -11,7 +11,7 @@ Module_Name = 'Example'
 #* ========================================================
 # If you need to automatically check for updates and notify
 # the user about them, insert the RAW link to the file
-#checkupdate("https://raw.githubusercontent.com/FoxUserbot/FoxUserbot/refs/heads/main/modules/loaded/example_edit.py", filename)
+#checkupdate("https://raw.githubusercontent.com/Fox-Userbot/FoxUserbot/refs/heads/main/modules/loaded/example_edit.py", filename)
 #* ========================================================
 # If you need to install an external module via pip
 # import the following line of code and install the library with the required parameter

@@ -7,19 +7,19 @@
     <br>
     <b>Used Kurigram (Fork Pyrogram)</b>
     <br>
-    <a href='https://github.com/FoxUserbot/CustomModules'>Custom modules</a>
+    <a href='https://github.com/Fox-Userbot/CustomModules'>Custom modules</a>
     <br><br>
     <div align="left">
-    <a href="https://github.com/FoxUserbot/FoxUserbot/blob/main/LICENSE">        
+    <a href="https://github.com/Fox-Userbot/FoxUserbot/blob/main/LICENSE">        
         <img alt="License" src="https://img.shields.io/github/license/Fox-Userbot/FoxUserbot?style=for-the-badge">
     </a>
-    <a href="https://github.com/FoxUserbot/FoxUserbot/commits/main">
+    <a href="https://github.com/Fox-Userbot/FoxUserbot/commits/main">
         <img alt="last-commit" src="https://img.shields.io/github/last-commit/Fox-Userbot/FoxUserbot?style=for-the-badge">
     </a>
-    <a href="https://github.com/FoxUserbot/FoxUserbot/issues">        
+    <a href="https://github.com/Fox-Userbot/FoxUserbot/issues">        
         <img alt="Issues" src="https://img.shields.io/github/issues/Fox-Userbot/FoxUserbot?style=for-the-badge">
     </a>
-    <a href="https://github.com/FoxUserbot/FoxUserbot">
+    <a href="https://github.com/Fox-Userbot/FoxUserbot">
         <img alt="CodeFactor" src="https://www.codefactor.io/repository/github/Fox-Userbot/FoxUserbot/badge?style=for-the-badge">
         <img alt="Stars" src="https://img.shields.io/github/stars/Fox-Userbot/FoxUserbot?style=for-the-badge">
         <img alt="Size" src="https://img.shields.io/github/repo-size/Fox-Userbot/FoxUserbot?style=for-the-badge">
@@ -110,7 +110,7 @@ async def example_with_var(client, message):
 
 <h2>How to add Hikka/Heroku modules?</h2>
 
-To add modules from Hikka/Heroku, there is a special compatibility layer called <b>Wine Hikka</b>. To use it, download the module file itself from the <a href='https://github.com/FoxUserbot/CustomModules'>modules repository</a> and reply to the Hikka module with <code>[prefix]wine_hikka</code> or <code>[prefix]wine_hikka [link]</code>.
+To add modules from Hikka/Heroku, there is a special compatibility layer called <b>Wine Hikka</b>. To use it, download the module file itself from the <a href='https://github.com/Fox-Userbot/CustomModules'>modules repository</a> and reply to the Hikka module with <code>[prefix]wine_hikka</code> or <code>[prefix]wine_hikka [link]</code>.
 
 AI will automatically convert the module from Telethon to Pyrogram for this UserBot, save it in the <code>modules/plugins_2custom/</code> folder and restart it.
 
@@ -121,49 +121,49 @@ AI will automatically convert the module from Telethon to Pyrogram for this User
 
 - Termux
 ```
-pkg update -y && pkg install python3 wget unzip -y && termux-wake-lock && wget -O foxub.$$ https://github.com/FoxUserbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
+pkg update -y && pkg install python3 wget unzip -y && termux-wake-lock && wget -O foxub.$$ https://github.com/Fox-Userbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
 ```
 
 > [!IMPORTANT]
 > Further installation (except for macOS and Docker) must be done as root or use sudo
 - APT (Debian based)
 ```
-apt update -y && apt install python3 python3-pip python3-venv wget unzip -y && wget -O foxub.$$ https://github.com/FoxUserbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main ; python3 -m venv venv ; source venv/bin/activate ; python3 main.py)
+apt update -y && apt install python3 python3-pip python3-venv wget unzip -y && wget -O foxub.$$ https://github.com/Fox-Userbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main ; python3 -m venv venv ; source venv/bin/activate ; python3 main.py)
 ```
 
 - APT (if python < 3.7, else go to "Debian based")
 ```
-apt update -y && apt install python3-venv curl wget unzip -y && sh <(curl -sSL https://raw.githubusercontent.com/FoxUserbot/FoxUserbot/main/HowToGetPython3_8.sh) && wget -O foxub.$$ https://github.com/FoxUserbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
+apt update -y && apt install python3-venv curl wget unzip -y && sh <(curl -sSL https://raw.githubusercontent.com/Fox-Userbot/FoxUserbot/main/HowToGetPython3_8.sh) && wget -O foxub.$$ https://github.com/Fox-Userbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
 ```
 
 - YUM (RHEL based)
 ```
-yum -y update && yum install wget python3 python3-pip curl unzip -y && wget -O foxub.$$ https://github.com/FoxUserbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
+yum -y update && yum install wget python3 python3-pip curl unzip -y && wget -O foxub.$$ https://github.com/Fox-Userbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
 ```
 
 - PACMAN (Arch based)
 ```
-pacman -Sy python3 python-pip wget curl unzip && wget -O foxub.$$ https://github.com/FoxUserbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
+pacman -Sy python3 python-pip wget curl unzip && wget -O foxub.$$ https://github.com/Fox-Userbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
 ```
 
 - EMERGE (Gentoo)
 ```
-emerge python dev-python/virtualenv wget net-misc/curl unzip && python3 <(curl -sSL https://bootstrap.pypa.io/get-pip.py) && wget -O foxub.$$ https://github.com/FoxUserbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
+emerge python dev-python/virtualenv wget net-misc/curl unzip && python3 <(curl -sSL https://bootstrap.pypa.io/get-pip.py) && wget -O foxub.$$ https://github.com/Fox-Userbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
 ```
 
 - APK (Alpine)
 ```
-apk update && apk add python3 wget unzip && wget -O foxub.$$ https://github.com/FoxUserbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
+apk update && apk add python3 wget unzip && wget -O foxub.$$ https://github.com/Fox-Userbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm -rf foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
 ```
 
 - FreeBSD
 ```
-pkg update && pkg install -y python3 py39-pip wget unzip ; python -m venv venv ; source venv/bin/activate ; pip install -U pip ; wget -O foxub.zip https://github.com/FoxUserbot/FoxUserbot/archive/refs/heads/main.zip ; unzip foxub.zip ; cd FoxUserbot-main ; python main.py
+pkg update && pkg install -y python3 py39-pip wget unzip ; python -m venv venv ; source venv/bin/activate ; pip install -U pip ; wget -O foxub.zip https://github.com/Fox-Userbot/FoxUserbot/archive/refs/heads/main.zip ; unzip foxub.zip ; cd FoxUserbot-main ; python main.py
 ```
 
 - MacOS
 ```
-xcode-select --install ; /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && brew install python3 && pip3 install --upgrade pip && pip3 install wheel && brew install wget unzip && wget -O foxub.$$ https://github.com/FoxUserbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
+xcode-select --install ; /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" && brew install python3 && pip3 install --upgrade pip && pip3 install wheel && brew install wget unzip && wget -O foxub.$$ https://github.com/Fox-Userbot/FoxUserbot/archive/refs/heads/main.zip && (unzip foxub.$$ && rm foxub.$$ && cd FoxUserbot-main && python3 -m venv venv && source venv/bin/activate && python3 main.py)
 ```
 
 - Docker
@@ -195,7 +195,7 @@ cd FoxUserbot-main ; source venv/bin/activate ; python3 main.py
 <h3>Windows</h2>
 <h4>Install</h3>
 
-- Download and Unzip <a href="https://github.com/FoxUserbot/FoxUserbot/archive/refs/heads/main.zip">This file</a>
+- Download and Unzip <a href="https://github.com/Fox-Userbot/FoxUserbot/archive/refs/heads/main.zip">This file</a>
 
 - Open windows.bat
 
@@ -205,9 +205,9 @@ cd FoxUserbot-main ; source venv/bin/activate ; python3 main.py
 
 <h1>Other:</h1>
 <h2>How to start in repl.it or google colab?</h2>
-<a href="https://replit.com/@lamaev/FoxUserbot"><img alt="Run on Repl.it" src="https://replit.com/badge/github/FoxUserbot/FoxUserBot" style="border-style: none; box-sizing: initial; max-width: 100%;" /></a>
+<a href="https://replit.com/@lamaev/FoxUserbot"><img alt="Run on Repl.it" src="https://replit.com/badge/github/Fox-Userbot/FoxUserbot" style="border-style: none; box-sizing: initial; max-width: 100%;" /></a>
 
-<a href="https://colab.research.google.com/github/FoxUserbot/FoxUserbot/blob/main/FoxUserbot_Colab.ipynb"><img alt="Run on colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>
+<a href="https://colab.research.google.com/github/Fox-Userbot/FoxUserbot/blob/main/FoxUserbot_Colab.ipynb"><img alt="Run on colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>
 
 <h1>Groups and support</h1>
 <a href="https://t.me/foxteam0">
