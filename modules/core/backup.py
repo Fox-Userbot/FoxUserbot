@@ -34,7 +34,7 @@ LANGUAGES = {
         "caption": """<emoji id='5472308992514464048'>🔐</emoji> | Backup {filename}
 <emoji id='5283051451889756068'>🦊</emoji> | Only for FoxUserbot
 <emoji id='5296369303661067030'>🔒</emoji> | Version: {version}
-<emoji id='5271604874419647061'>🔗</emoji> | https://github.com/FoxUserbot/FoxUserbot"""
+<emoji id='5271604874419647061'>🔗</emoji> | https://github.com/Fox-Userbot/FoxUserbot"""
     },
     "ru": {
         "need_reply": "<b><emoji id='5210952531676504517'>❌</emoji> Нужно ответить на сообщение с архивом бэкапа!</b>",
@@ -50,7 +50,7 @@ LANGUAGES = {
         "caption": """<emoji id='5472308992514464048'>🔐</emoji> | Бэкап {filename}
 <emoji id='5283051451889756068'>🦊</emoji> | Только для FoxUserbot
 <emoji id='5296369303661067030'>🔒</emoji> | Версия: {version}
-<emoji id='5271604874419647061'>🔗</emoji> | https://github.com/FoxUserbot/FoxUserbot"""
+<emoji id='5271604874419647061'>🔗</emoji> | https://github.com/Fox-Userbot/FoxUserbot"""
     },
     "ua": {
         "need_reply": "<b><emoji id='5210952531676504517'>❌</emoji> Потрібно відповісти на повідомлення з архівом бекапу!</b>",
@@ -66,7 +66,7 @@ LANGUAGES = {
         "caption": """<emoji id='5472308992514464048'>🔐</emoji> | Бекап {filename}
 <emoji id='5283051451889756068'>🦊</emoji> | Тільки для FoxUserbot
 <emoji id='5296369303661067030'>🔒</emoji> | Версія: {version}
-<emoji id='5271604874419647061'>🔗</emoji> | https://github.com/FoxUserbot/FoxUserbot"""
+<emoji id='5271604874419647061'>🔗</emoji> | https://github.com/Fox-Userbot/FoxUserbot"""
     }
 }
 

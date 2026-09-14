@@ -44,7 +44,7 @@ modules_value = 0
 for _ in modules:
     try:
         if os.path.exists(f"modules/plugins_1system/{_}"):
-            link = f"https://raw.githubusercontent.com/FoxUserbot/CustomModules/refs/heads/main/{_}"
+            link = f"https://raw.githubusercontent.com/Fox-Userbot/CustomModules/refs/heads/main/{_}"
             wget.download(link, f"temp/{_}")
             os.replace(f"temp/{_}", f"modules/plugins_2custom/{_}")
             os.remove(f"modules/plugins_1system/{_}")

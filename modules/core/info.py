@@ -11,7 +11,7 @@ from command import fox_command, fox_sudo, who_message, get_text
 from modules.core.uptime import bot_start_time
 from pyrogram import Client, __version__
 
-DEFAULT_INFO_IMAGE = "https://raw.githubusercontent.com/FoxUserbot/FoxUserbot/refs/heads/main/photos/FoxUB_info.jpg"
+DEFAULT_INFO_IMAGE = "https://raw.githubusercontent.com/Fox-Userbot/FoxUserbot/refs/heads/main/photos/FoxUB_info.jpg"
 THEME_PATH = "userdata/theme.ini"
 
 LANGUAGES = {
@@ -25,8 +25,8 @@ LANGUAGES = {
 <emoji id="5420323339723881652">🛡️</emoji><b> | Safe Mode: {safe_mode}</b>
     
 <emoji id="5330237710655306682">💻</emoji><a href="https://t.me/foxteam0"><b> | Official FoxTeam Channel.</b></a>
-<emoji id="5346181118884331907">🐈‍⬛</emoji><a href="https://github.com/FoxUserbot/FoxUserbot"><b> | Github Repository.</b></a>
-<emoji id="5379999674193172777">🤔</emoji><a href="https://github.com/FoxUserbot/FoxUserbot#how-to-install"><b> | Installation Guide.</b></a>
+<emoji id="5346181118884331907">🐈‍⬛</emoji><a href="https://github.com/Fox-Userbot/FoxUserbot"><b> | Github Repository.</b></a>
+<emoji id="5379999674193172777">🤔</emoji><a href="https://github.com/Fox-Userbot/FoxUserbot#how-to-install"><b> | Installation Guide.</b></a>
     
 <emoji id=5350554349074391003>💻</emoji> | <b>Developers:</b>
 <emoji id="5330237710655306682">📞</emoji> | <a href="https://t.me/a9_fm">A9FM</a>
@@ -46,8 +46,8 @@ LANGUAGES = {
 <emoji id="5420323339723881652">🛡️</emoji><b> | Безопасный режим: {safe_mode}</b>
     
 <emoji id="5330237710655306682">💻</emoji><a href="https://t.me/foxteam0"><b> | Официальный канал FoxTeam.</b></a>
-<emoji id="5346181118884331907">🐈‍⬛</emoji><a href="https://github.com/FoxUserbot/FoxUserbot"><b> | Github репозиторий.</b></a>
-<emoji id="5379999674193172777">🤔</emoji><a href="https://github.com/FoxUserbot/FoxUserbot#how-to-install"><b> | Руководство по установке.</b></a>
+<emoji id="5346181118884331907">🐈‍⬛</emoji><a href="https://github.com/Fox-Userbot/FoxUserbot"><b> | Github репозиторий.</b></a>
+<emoji id="5379999674193172777">🤔</emoji><a href="https://github.com/Fox-Userbot/FoxUserbot#how-to-install"><b> | Руководство по установке.</b></a>
     
 <emoji id=5350554349074391003>💻</emoji> | <b>Разработчики:</b>
 <emoji id="5330237710655306682">📞</emoji> | <a href="https://t.me/a9_fm">A9FM</a>
@@ -67,8 +67,8 @@ LANGUAGES = {
 <emoji id="5420323339723881652">🛡️</emoji><b> | Безпечний режим: {safe_mode}</b>
     
 <emoji id="5330237710655306682">💻</emoji><a href="https://t.me/foxteam0"><b> | Офіційний канал FoxTeam.</b></a>
-<emoji id="5346181118884331907">🐈‍⬛</emoji><a href="https://github.com/FoxUserbot/FoxUserbot"><b> | Github репозиторій.</b></a>
-<emoji id="5379999674193172777">🤔</emoji><a href="https://github.com/FoxUserbot/FoxUserbot#how-to-install"><b> | Посібник з встановлення.</b></a>
+<emoji id="5346181118884331907">🐈‍⬛</emoji><a href="https://github.com/Fox-Userbot/FoxUserbot"><b> | Github репозиторій.</b></a>
+<emoji id="5379999674193172777">🤔</emoji><a href="https://github.com/Fox-Userbot/FoxUserbot#how-to-install"><b> | Посібник з встановлення.</b></a>
     
 <emoji id=5350554349074391003>💻</emoji> | <b>Розробники:</b>
 <emoji id="5330237710655306682">📞</emoji> | <a href="https://t.me/a9_fm">A9FM</a>
@@ -279,8 +279,8 @@ def replace_aliases(text, message):
 
     footer = f"""
 <blockquote expandable><emoji id="5330237710655306682">💻</emoji><a href="https://t.me/foxteam0"><b> | Official FoxTeam Channel.</b></a>
-<emoji id="5346181118884331907">🐈‍⬛</emoji><a href="https://github.com/FoxUserbot/FoxUserbot"><b> | Github Repository.</b></a>
-<emoji id="5379999674193172777">🤔</emoji><a href="https://github.com/FoxUserbot/FoxUserbot#how-to-install"><b> | Installation Guide.</b></a></blockquote>
+<emoji id="5346181118884331907">🐈‍⬛</emoji><a href="https://github.com/Fox-Userbot/FoxUserbot"><b> | Github Repository.</b></a>
+<emoji id="5379999674193172777">🤔</emoji><a href="https://github.com/Fox-Userbot/FoxUserbot#how-to-install"><b> | Installation Guide.</b></a></blockquote>
 """
     return text + footer
 

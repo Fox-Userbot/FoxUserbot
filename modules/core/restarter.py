@@ -46,13 +46,18 @@ LANGUAGES = {
 # Add new mirrors here as {"main": "https://...", "beta": "https://...", "expires": "YYYY-MM-DD"}.
 UPDATE_MIRRORS = [
     {
+        "main": "https://github.com/Fox-Userbot/FoxUserbot/archive/refs/heads/main.zip",
+        "beta": "https://github.com/Fox-Userbot/FoxUserbot-beta/archive/refs/heads/main.zip",
+        "expires": "2027-09-14",
+    },
+    {
         "main": "https://rpi4b.tailb2d7b7.ts.net/FoxUserbot/FoxUserbot/archive/main.zip",
-        "beta": "https://rpi4b.tailb2d7b7.ts.net/FoxUserbot/FoxUserbot-dev/archive/main.zip",
+        "beta": "https://rpi4b.tailb2d7b7.ts.net/FoxUserbot/FoxUserbot-beta/archive/main.zip",
         "expires": "2026-11-13",
     },
     {
         "main": "https://git.a9fm.best/FoxUserbot/FoxUserbot/archive/main.zip",
-        "beta": "https://git.a9fm.best/FoxUserbot/FoxUserbot-dev/archive/main.zip",
+        "beta": "https://git.a9fm.best/FoxUserbot/FoxUserbot-beta/archive/main.zip",
         "expires": "2027-02-20",
     },
 ]

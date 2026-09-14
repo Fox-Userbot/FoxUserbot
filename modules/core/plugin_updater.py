@@ -61,7 +61,7 @@ LANGUAGES = {
 }
 
 # Dev inserts 1 line:
-# UPDATE_URL = "https://raw.githubusercontent.com/FoxUserbot/CustomModules/main/ai.py"
+# UPDATE_URL = "https://raw.githubusercontent.com/Fox-Userbot/CustomModules/main/ai.py"
 # or checkupdate("https://...", filename)  (compatible with example_edit.py:14)
 UPDATE_RE = re.compile(r'UPDATE_URL\s*=\s*["\']([^"\']+)["\']')
 CHECKUPDATE_RE = re.compile(r'checkupdate\s*\(\s*["\']([^"\']+)["\']')

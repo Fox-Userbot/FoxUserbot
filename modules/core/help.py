@@ -12,7 +12,7 @@ from command import fox_command, fox_sudo, who_message, get_text, my_prefix
 from modules.core.settings.main_settings import module_list, version
 
 # Default
-DEFAULT_HELP_IMAGE = "https://raw.githubusercontent.com/FoxUserbot/FoxUserbot/main/photos/FoxUB_help.jpg"
+DEFAULT_HELP_IMAGE = "https://raw.githubusercontent.com/Fox-Userbot/FoxUserbot/main/photos/FoxUB_help.jpg"
 THEME_PATH = "userdata/theme.ini"
 CACHE_DIR = "temp"
 CACHE_CONTENT_FILE = os.path.join(CACHE_DIR, "help_content.txt")

@@ -18,7 +18,7 @@ def show_banner():
 ╦ ╦┌─┐┌─┐┬─┐┌┐ ┌─┐┌┬┐
 ║ ║└─┐├┤ ├┬┘├┴┐│ │ │ 
 ╚═╝└─┘└─┘┴└─└─┘└─┘ ┴ 
-Github: https://github.com/FoxUserbot/FoxUserbot
+Github: https://github.com/Fox-Userbot/FoxUserbot
 Version: {version}
 Prefix: {my_prefix()}\n""", Colors.red_to_yellow, interval=0)
     
